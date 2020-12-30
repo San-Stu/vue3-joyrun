@@ -3,7 +3,8 @@ module.exports = [
     type: 'input',
     name: 'name',
     message: 'Project name',
-    required: true
+    required: true,
+    validate: (value) => !!value
   },
   {
     type: 'input',
