@@ -1,4 +1,3 @@
-<%# REPLACE %>
 {
   "name": "<%= options.name %>",
   "description": "<%= options.description %>",
@@ -47,4 +46,3 @@
     "typescript": "~3.9.3"
   }
 }
-<%# END_REPLACE %>
