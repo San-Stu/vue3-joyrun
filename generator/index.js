@@ -1,6 +1,6 @@
 module.exports = (api, options, rootOptions) => {
   // 修改package.json
-  api.extendPackage({
+  const package = {
     'name': options.name,
     'description': options.description,
     'version': '1.0.0',
@@ -36,18 +36,25 @@ module.exports = (api, options, rootOptions) => {
       'eslint-plugin-standard': '^4.0.0',
       'eslint-plugin-vue': '^7.0.0-0',
       'ip': '^1.1.5',
-      <% if(options.cssPerprocessor === 'less') { %>
+      'typescript': '~3.9.3'
+    }
+  }
+  if (options.cssPerprocessor === 'less') {
+    package.devDependencies = {
+      ...package.devDependencies,
       'less': '^3.0.4',
       'less-loader': '^5.0.0',
-      <% } %>
-      <% if (options.cssPerprocessor === 'sass') { %>
+    }
+  }
+  if (options.cssPerprocessor === 'sass') {
+    package.devDependencies = {
+      ...package.devDependencies,
       'node-sass': '^4.8.3',
       'sass': '^1.1.1',
       'sass-loader': '^6.0.7',
-      <% } %>
-      'typescript': '~3.9.3'
-}
-  })
+    }
+  }
+  api.extendPackage(package)
   // 复制并用 ejs 渲染 `./template` 内所有的文件
   api.render('../template')
 }
