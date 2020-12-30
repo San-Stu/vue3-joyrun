@@ -2,7 +2,7 @@ const path = require('path');
 const ip = require('ip').address();
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/activity/vue3test/dist/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/activity/<%= user.name %>/dist/' : '/',
   indexPath: path.resolve(__dirname, './index.html'),
   productionSourceMap: true,  // 开启生产环境source map
   devServer: {
@@ -13,7 +13,7 @@ module.exports = {
     open: true,
     host: ip, // ip打开
     proxy: {
-      '/fourpartycrew': {
+      '/<%= user.name %>': {
         target: 'http://webevent.cc',
         changeOrigin: true
       }
@@ -32,13 +32,5 @@ module.exports = {
             cache: false
           }
         })
-  },
-  configureWebpack: {
-    resolve: {
-      alias: {
-        '@': path.join(__dirname, './src')
-      },
-      extensions: ['.vue', '.ts', '.js', '.json']
-    }
   }
 }
