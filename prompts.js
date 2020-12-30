@@ -3,14 +3,12 @@ module.exports = [
     type: 'input',
     name: 'name',
     message: 'Project name',
-    required: true,
     validate: (value) => !!value
   },
   {
     type: 'input',
     name: 'description',
     message: 'Project description',
-    required: true,
     default: 'Joyrun H5 activity'
   },
   {
@@ -28,14 +26,12 @@ module.exports = [
     type: 'input',
     name: 'shareHost',
     message: 'share url host in wechat',
-    required: true,
     default: 'webevent.thejoyrun.com'
   },
   {
     type: 'input',
     name: 'description',
     message: 'Project description',
-    required: true,
     default: 'Joyrun H5 activity'
   },
   {

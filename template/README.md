@@ -1,4 +1,4 @@
-# vue3-template
+# <%= options.name %>
 
 ## Project setup
 ```
