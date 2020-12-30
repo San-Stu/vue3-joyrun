@@ -34,11 +34,11 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0-0",
     "ip": "^1.1.5",
-    <% if (options.cssPerprocessor "less") { %>
+    <% if (options.cssPerprocessor === 'less') { %>
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     } %>
-    <% if (options.cssPerprocessor "sass") { %>
+    <% if (options.cssPerprocessor === 'sass') { %>
     "node-sass": "^4.8.3",
     "sass": "^1.1.1",
     "sass-loader": "^6.0.7",
