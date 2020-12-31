@@ -1,6 +1,5 @@
 <template>
-  <div class="page2">
-    <router-link to="/">to 1</router-link>
+  <div>
   </div>
 </template>
 
@@ -8,13 +7,9 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Home'
+  name: 'index'
 })
 </script>
 
 <style lane="less">
-.page2{
-  height: 100vh;
-  background-color: blue;
-}
 </style>
