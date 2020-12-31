@@ -56,6 +56,7 @@ module.exports = (api, options, rootOptions) => {
   // }
   // api.extendPackage(package)
   api.render(files => {
+    console.log(files)
     Object.keys(files)
       .filter(name => name.startsWith("src/"))
       .forEach(name => delete files[name])
