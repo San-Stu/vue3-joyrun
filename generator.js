@@ -64,7 +64,7 @@ module.exports = (api, options, rootOptions) => {
     //   .filter(name => name.startsWith("src/"))
     //   .forEach(name => delete files[name])
   })
-  fs.readFileSync(api.resolve('./'), 'utf-8', function (err, data) {
+  fs.readFileSync(api.resolve('./src/pages/Home.vue'), 'utf-8', function (err, data) {
     console.log(data)
   })
   // 复制并用 ejs 渲染 `./template` 内所有的文件
