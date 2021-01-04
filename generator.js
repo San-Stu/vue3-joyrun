@@ -7,6 +7,7 @@ const deleteFilesArr = [
   'public/favicon.ico',
   'src/assets/logo.png',
   'src/main.js',
+  'package.json'
 ]
 
 module.exports = (api, options, rootOptions) => {
@@ -70,8 +71,11 @@ module.exports = (api, options, rootOptions) => {
   api.render('./template')
   api.render(files => {
     // delete files['src/pages/page2.vue']
-    delete files['src/pages/Home.vue']
-    delete files['src/components/HelloWorld.vue']
+    // delete files['src/pages/Home.vue']
+    // delete files['src/components/HelloWorld.vue']
+    deleteFilesArr.forEach(file => {
+      delete files[file]
+    })
     // Object.keys(files)
     //   .filter(name => name.startsWith("src/"))
     //   .forEach(name => delete files[name])
