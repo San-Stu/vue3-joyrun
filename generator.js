@@ -69,8 +69,8 @@ module.exports = (api, options, rootOptions) => {
   // 配置文件
   api.render({
     './.eslintrc.js': './template/_eslintrc.js',
-    './.eslintignore.js': './template/_eslintignore.js',
-    './.editorconfig.js': './template/_editorconfig.js'
+    './.eslintignore': './template/_eslintignore',
+    './.editorconfig': './template/_editorconfig'
   });
   api.render(files => {
     deleteFilesArr.forEach(file => {
