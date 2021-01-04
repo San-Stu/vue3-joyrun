@@ -65,6 +65,10 @@ module.exports = (api, options, rootOptions) => {
   api.extendPackage(package)
   // 复制并用 ejs 渲染 `./template` 内所有的文件
   api.render('./template')
+  // 配置文件
+  api.render({
+    './.eslintrc.js': './template/_eslintrc.js',
+  });
   api.render(files => {
     deleteFilesArr.forEach(file => {
       delete files[file]
