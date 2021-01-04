@@ -43,6 +43,7 @@ module.exports = (api, options, rootOptions) => {
       'eslint-plugin-promise': '^4.2.1',
       'eslint-plugin-standard': '^4.0.0',
       'eslint-plugin-vue': '^7.0.0-0',
+      "fork-ts-checker-webpack-plugin": "^6.0.8",
       'ip': '^1.1.5',
       'typescript': '~3.9.3'
     }
@@ -68,6 +69,8 @@ module.exports = (api, options, rootOptions) => {
   // 配置文件
   api.render({
     './.eslintrc.js': './template/_eslintrc.js',
+    './.eslintignore.js': './template/_eslintignore.js',
+    './.editorconfig.js': './template/_editorconfig.js'
   });
   api.render(files => {
     deleteFilesArr.forEach(file => {
