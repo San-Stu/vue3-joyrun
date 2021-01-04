@@ -1,12 +1,10 @@
 <template>
   <% if (options.animateType === 'fade') { %>
-  <style lang="less">
-    <router-view v-slot="{ Component }">
-      <transition name="fade">
-        <component :is="Component" />
-      </transition>
-    </router-view>
-  </style>
+  <router-view v-slot="{ Component }">
+    <transition name="fade">
+      <component :is="Component" />
+    </transition>
+  </router-view>
   <% } else { %>
     <router-view></router-view>
   <% } %>

@@ -3,11 +3,11 @@ export default  {
         app.config.globalProperties.share = shareData => {
             run.menuShare(shareData);
 
-            var _that = this;
+            var _that = this; shareHost
             var curUrl = encodeURIComponent(window.location.href);
             $.ajax({
                 type: 'get',
-                url: '//webevent.thejoyrun.com/wechatapi/jsconfig?url=' + curUrl,
+                url: '//<%= options.shareHost %>/wechatapi/jsconfig?url=' + curUrl,
                 dataType: 'jsonp',
                 cache: false,
                 success: function (data) {
