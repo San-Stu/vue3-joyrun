@@ -1,9 +1,15 @@
 <template>
-  <router-view v-slot="{ Component }">
-    <transition name="fade">
-      <component :is="Component" />
-    </transition>
-  </router-view>
+  <% if (options.animateType === 'fade') { %>
+  <style lang="less">
+    <router-view v-slot="{ Component }">
+      <transition name="fade">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </style>
+  <% } else { %>
+    <router-view></router-view>
+  <% } %>
 </template>
 
 <script>
@@ -94,6 +100,7 @@ export default defineComponent({
     box-sizing: border-box;
   }
   * { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  <% if (options.animateType === 'fade') { %>
   /* router fade */
   .fade-enter-active, .fade-leave-active {
     transition: opacity 0.1s
@@ -102,6 +109,7 @@ export default defineComponent({
   .fade-enter, .fade-leave-to {
     opacity: 0
   }
+  <% } %>
   #app {
     width: 100%;
     margin: 0 auto;

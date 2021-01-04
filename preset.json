@@ -2,7 +2,7 @@
   "useTaobaoRegistry": true,
   "packageManager": "yarn",
   "useConfigFiles": true,
-  "router": true,
+  "router": false,
   "vuex": false,
   "plugins": {
     "@vue/cli-plugin-babel": {},
