@@ -8,6 +8,7 @@ const deleteFilesArr = [
 ]
 
 module.exports = (api, options, rootOptions) => {
+  console.log(api.service)
   // 修改package.json
   const package = {
     'name': options.name,
@@ -17,8 +18,7 @@ module.exports = (api, options, rootOptions) => {
     'license': options.license,
     'private': true,
     'scripts': {
-      'dev': 'vue-cli-service serve',
-      'build': 'vue-cli-service build'
+      'dev': 'vue-cli-service serve'
     },
     'dependencies': {
       'axios': '^0.21.1',
@@ -64,12 +64,9 @@ module.exports = (api, options, rootOptions) => {
     }
   }
   api.extendPackage(package)
-  // 修改cli-service 命令
-  // const { serve } = api.service.commands
   // 复制并用 ejs 渲染 `./template` 内所有的文件
   api.render('./template')
   api.render(files => {
-    console.log(files)
     deleteFilesArr.forEach(file => {
       delete files[file]
     })
