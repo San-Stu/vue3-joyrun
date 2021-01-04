@@ -1,5 +1,14 @@
 const fs = require('fs')
 
+const deleteFilesArr = [
+  'src/pages/page2.vue',
+  'src/pages/Home.vue',
+  'src/components/HelloWorld.vue',
+  'public/favicon.ico',
+  'src/assets/logo.png',
+  'src/main.js',
+]
+
 module.exports = (api, options, rootOptions) => {
   // 修改package.json
   // const package = {
