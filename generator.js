@@ -65,8 +65,8 @@ module.exports = (api, options, rootOptions) => {
   }
   api.extendPackage(package)
   // 修改cli-service 命令
-  const { serve } = api.service.commands
-  console.log(serve.fn)
+  // const { serve } = api.service.commands
+  console.log(api.service)
   // 复制并用 ejs 渲染 `./template` 内所有的文件
   api.render('./template')
   api.render(files => {
