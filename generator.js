@@ -8,9 +8,7 @@ const deleteFilesArr = [
 ]
 
 module.exports = (api, options, rootOptions) => {
-  api.afterInvoke(() => {
-    console.log(api)
-  })
+  console.log(Object.keys(api))
   // 修改package.json
   const package = {
     'name': options.name,
