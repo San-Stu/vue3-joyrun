@@ -4,6 +4,17 @@
   "useConfigFiles": true,
   "router": false,
   "vuex": false,
-  "plugins": {},
-  "configs": {}
+  "plugins": {
+    "@vue/cli-plugin-eslint": {
+      "config": "standard",
+      "lintOn": [
+        "save"
+      ]
+    }
+  },
+  "configs": {
+    "eslintConfig": {
+      "rules": {}
+    }
+  }
 }

@@ -8,7 +8,6 @@ const deleteFilesArr = [
 ]
 
 module.exports = (api, options, rootOptions) => {
-  console.log(Object.keys(api))
   // 修改package.json
   const package = {
     'name': options.name,
