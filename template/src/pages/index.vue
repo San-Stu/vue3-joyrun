@@ -11,5 +11,5 @@ export default defineComponent({
 })
 </script>
 
-<style lane="less">
+<style <% if (options.cssPerprocessor === 'less') { lane="less" } %> <% if (options.cssPerprocessor === 'sass') { lane="sass" } %>>
 </style>
