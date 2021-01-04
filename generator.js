@@ -8,7 +8,6 @@ const deleteFilesArr = [
 ]
 
 module.exports = (api, options, rootOptions) => {
-  console.log(api)
   api.afterInvoke(() => {
     console.log(api)
   })
