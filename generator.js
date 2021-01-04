@@ -57,12 +57,12 @@ module.exports = (api, options, rootOptions) => {
   //   }
   // }
   // api.extendPackage(package)
+  // 复制并用 ejs 渲染 `./template` 内所有的文件
+  api.render('./template')
   api.render(files => {
-    console.log(files)
+    delete files['src/pages/page2.vue']
     // Object.keys(files)
     //   .filter(name => name.startsWith("src/"))
     //   .forEach(name => delete files[name])
   })
-  // 复制并用 ejs 渲染 `./template` 内所有的文件
-  api.render('./template')
 }
