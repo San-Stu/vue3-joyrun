@@ -36,8 +36,6 @@
     "tests/**/*.tsx",
   ],
   "exclude": [
-    "node_modules",
-    "src/common/share.ts",
-    "src/common/shareConfig.ts"
+    "node_modules"
   ]
 }
