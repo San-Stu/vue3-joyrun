@@ -3,7 +3,7 @@ export default  {
         app.config.globalProperties.share = shareData => {
             run.menuShare(shareData);
 
-            var _that = this; shareHost
+            var _that = this;
             var curUrl = encodeURIComponent(window.location.href);
             $.ajax({
                 type: 'get',

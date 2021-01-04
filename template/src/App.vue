@@ -1,13 +1,10 @@
 <template>
-  <% if (options.animateType === 'fade') { %>
-  <router-view v-slot="{ Component }">
+  <% if (options.animateType === 'fade') {<router-view v-slot="{ Component }">%>
     <transition name="fade">
       <component :is="Component" />
     </transition>
   </router-view>
-  <% } else { %>
-    <router-view></router-view>
-  <% } %>
+  <% } else { <router-view></router-view> }%>
 </template>
 
 <script>
@@ -98,16 +95,15 @@ export default defineComponent({
     box-sizing: border-box;
   }
   * { -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
-  <% if (options.animateType === 'fade') { %>
-  /* router fade */
+   
+  <% if (options.animateType === 'fade') {/* router fade */ %>
   .fade-enter-active, .fade-leave-active {
     transition: opacity 0.1s
   }
 
   .fade-enter, .fade-leave-to {
     opacity: 0
-  }
-  <% } %>
+  <% } } %>
   #app {
     width: 100%;
     margin: 0 auto;

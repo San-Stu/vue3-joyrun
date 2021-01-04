@@ -3,8 +3,8 @@ import Index from '@/pages/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/index',
-    name: 'Index',
+    path: '/',
+    name: 'index',
     component: Index
   }
 ]
