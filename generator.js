@@ -43,7 +43,7 @@ module.exports = (api, options, rootOptions) => {
       'eslint-plugin-promise': '^4.2.1',
       'eslint-plugin-standard': '^4.0.0',
       'eslint-plugin-vue': '^7.0.0-0',
-      "fork-ts-checker-webpack-plugin": "^6.0.8",
+      // "fork-ts-checker-webpack-plugin": "^6.0.8",
       'ip': '^1.1.5',
       'typescript': '~3.9.3'
     }
@@ -70,7 +70,8 @@ module.exports = (api, options, rootOptions) => {
   api.render({
     './.eslintrc.js': './template/_eslintrc.js',
     './.eslintignore': './template/_eslintignore',
-    './.editorconfig': './template/_editorconfig'
+    './.editorconfig': './template/_editorconfig',
+    './package-lock.json': './template/_package-lock.json'
   });
   api.render(files => {
     deleteFilesArr.forEach(file => {

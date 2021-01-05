@@ -33,7 +33,6 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.0.0-0",
-    "fork-ts-checker-webpack-plugin": "^6.0.8",
     "ip": "^1.1.5",
     <% if (options.cssPerprocessor === 'less') { %>
     "less": "^3.0.4",
