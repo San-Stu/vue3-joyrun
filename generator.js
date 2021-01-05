@@ -72,7 +72,6 @@ module.exports = (api, options, rootOptions) => {
     deleteFilesArr.forEach(file => {
       delete files[file]
     })
-    console.log(Object.keys(files))
   })
   // 配置文件
   api.render({
