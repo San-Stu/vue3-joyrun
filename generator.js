@@ -77,7 +77,6 @@ module.exports = (api, options, rootOptions) => {
   api.render({
     './.eslintrc.js': './template/_eslintrc.js',
     './.eslintignore': './template/_eslintignore',
-    './.editorconfig': './template/_editorconfig',
-    './package-lock.json': './template/package-lock.json'
+    './.editorconfig': './template/_editorconfig'
   });
 }
