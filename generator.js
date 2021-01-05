@@ -5,7 +5,7 @@ const deleteFilesArr = [
   'public/favicon.ico',
   'src/assets/logo.png',
   'src/main.js',
-  './package-lock.json'
+  'package-lock.json'
 ]
 
 module.exports = (api, options, rootOptions) => {
@@ -72,6 +72,7 @@ module.exports = (api, options, rootOptions) => {
     deleteFilesArr.forEach(file => {
       delete files[file]
     })
+    console.log(Object.keys(files))
   })
   // 配置文件
   api.render({
