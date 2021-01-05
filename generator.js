@@ -4,7 +4,8 @@ const deleteFilesArr = [
   'src/components/HelloWorld.vue',
   'public/favicon.ico',
   'src/assets/logo.png',
-  'src/main.js'
+  'src/main.js',
+  './package-lock.json'
 ]
 
 module.exports = (api, options, rootOptions) => {
@@ -66,6 +67,12 @@ module.exports = (api, options, rootOptions) => {
   api.extendPackage(package)
   // 复制并用 ejs 渲染 `./template` 内所有的文件
   api.render('./template')
+  // 删除文件
+  api.render(files => {
+    deleteFilesArr.forEach(file => {
+      delete files[file]
+    })
+  })
   // 配置文件
   api.render({
     './.eslintrc.js': './template/_eslintrc.js',
@@ -73,9 +80,4 @@ module.exports = (api, options, rootOptions) => {
     './.editorconfig': './template/_editorconfig',
     './package-lock.json': './template/package-lock.json'
   });
-  api.render(files => {
-    deleteFilesArr.forEach(file => {
-      delete files[file]
-    })
-  })
 }
