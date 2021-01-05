@@ -71,7 +71,7 @@ module.exports = (api, options, rootOptions) => {
     './.eslintrc.js': './template/_eslintrc.js',
     './.eslintignore': './template/_eslintignore',
     './.editorconfig': './template/_editorconfig',
-    './package-lock.json': './template/_package-lock.json'
+    './package-lock.json': './template/package-lock.json'
   });
   api.render(files => {
     deleteFilesArr.forEach(file => {
