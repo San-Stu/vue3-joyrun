@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { Toast } from 'mint-ui'
+import { Toast } from 'vant'
 
 axios.defaults.baseURL = process.env.NODE_ENV === 'production'
   ? '//' + document.domain + '/yearsum2020'

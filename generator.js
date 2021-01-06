@@ -22,7 +22,7 @@ module.exports = (api, options, rootOptions) => {
     },
     'dependencies': {
       'axios': '^0.21.1',
-      'mint-ui': '^2.2.13',
+      "vant": "^3.0.2",
       'vue': '^3.0.0',
       'vue-router': '^4.0.0-0'
     },
@@ -44,8 +44,8 @@ module.exports = (api, options, rootOptions) => {
       'eslint-plugin-promise': '^4.2.1',
       'eslint-plugin-standard': '^4.0.0',
       'eslint-plugin-vue': '^7.0.0-0',
-      // "fork-ts-checker-webpack-plugin": "^6.0.8",
       'ip': '^1.1.5',
+      "ts-import-plugin": "^1.6.7",
       'typescript': '~3.9.3'
     }
   }
