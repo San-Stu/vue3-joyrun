@@ -6,7 +6,7 @@
     </transition>
   </router-view>
   <% } else { %>
-    <router-view></router-view>
+  <router-view></router-view>
   <% } %>
 </template>
 
