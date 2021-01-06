@@ -9,7 +9,7 @@ const routes: Array<RouteRecordRaw> = [
   }
 ]
 
-const base = process.env.NODE_ENV === 'production' ? '/activity/vue3test/' : ''
+const base = process.env.NODE_ENV === 'production' ? '/activity/<%= options.name %>/' : ''
 const router = createRouter({
   history: createWebHistory(base),
   routes,

@@ -16,8 +16,8 @@ axios.interceptors.request.use((config) => {
 // 响应拦截器
 axios.interceptors.response.use((res) => {
   const { data } = res
-  if (data && data.code && data.code !== 0) {
-    // Toast(data.msg)
+  if (data && data.code !== 0) {
+    Toast(data.msg)
   }
   return data
 }, (err) => {
