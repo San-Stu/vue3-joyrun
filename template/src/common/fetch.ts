@@ -2,8 +2,8 @@ import axios from 'axios'
 import { Toast } from 'vant'
 
 axios.defaults.baseURL = process.env.NODE_ENV === 'production'
-  ? '//' + document.domain + '/yearsum2020'
-  : '/yearsum2020'
+  ? '//' + document.domain + '/<%= options.name %>'
+  : '/<%= options.name %>'
 
 // 请求拦截器
 axios.interceptors.request.use((config) => {
