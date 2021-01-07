@@ -18,7 +18,8 @@ module.exports = (api, options, rootOptions) => {
     'license': options.license,
     'private': true,
     'scripts': {
-      'dev': 'vue-cli-service serve'
+      'dev': 'vue-cli-service serve',
+      'build:cdn': 'cross-env IS_CDN=true vue-cli-service build && node build_cdn.js'
     },
     'dependencies': {
       'axios': '^0.21.1',
@@ -67,13 +68,6 @@ module.exports = (api, options, rootOptions) => {
     }
   }
   api.extendPackage(package)
-  // 添加build并上传cdn命令
-  api.registerCommand(
-    'build:cdn',
-    {
-      usage: 'cross-env IS_CDN=true vue-cli-service build && node build_cdn.js'
-    }
-  )
   // 复制并用 ejs 渲染 `./template` 内所有的文件
   api.render('./template')
   // 删除文件
