@@ -3,9 +3,8 @@ const fs = require('fs');
 
 const service = new upyun.Service('bucket', 'operator', 'password');
 const client = new upyun.Client(service);
-const name = <%= options.name %>
+const name = '<%= options.name %>'
 const year = new Date().getFullYear();
-// const year = 2018
 const month = `${new Date().getMonth() + 1}`.padStart(2, 0);
 const uploadDirType = ['js', 'css'];
 let uploadObj = {};
