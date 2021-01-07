@@ -44,6 +44,7 @@ module.exports = (api, options, rootOptions) => {
       'eslint-plugin-promise': '^4.2.1',
       'eslint-plugin-standard': '^4.0.0',
       'eslint-plugin-vue': '^7.0.0-0',
+      "upyun": "^3.4.4",
       'ip': '^1.1.5',
       "ts-import-plugin": "^1.6.7",
       'typescript': '~3.9.3'

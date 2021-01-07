@@ -1,48 +1,121 @@
-const crypto = require("crypto");
+const upyun = require('upyun');
+const fs = require('fs');
 
-// MD5
-function MD5(value) {
-  return crypto
-    .createHash("md5")
-    .update(value)
-    .digest("hex");
+const service = new upyun.Service('bucket', 'operator', 'password');
+const client = new upyun.Client(service);
+const name = <%= options.name %>
+const year = new Date().getFullYear();
+// const year = 2018
+const month = `${new Date().getMonth() + 1}`.padStart(2, 0);
+const uploadDirType = ['js', 'css'];
+let uploadObj = {};
+
+// 文件上传
+const upload = () => {
+  const obj = uploadObj
+  for (let key in obj) {
+    fs.readFile(obj[key], (err, data) => {
+      if (err) {
+        return console.error(err);
+      }
+      client.putFile(`/huodong/build/${year}/${month}/${name}/${obj[key]}`, data.toString()).then((res) => {
+        if (res) {
+          console.log(`${key}上传成功！`);
+        } else {
+          console.error(`${key}上传失败`);
+        }
+      })
+    })
+  }
 }
 
-// Base64
-function base64(value) {
-  return Buffer.from(value).toString("base64");
+let isFirst = true
+let deleteArr = []
+// 递归删除文件
+const recursiveCheckFile = async (path, isLastIndex = false) => {
+  const res = await client.listDir(path)
+  if (res && res.files) {
+    if (!res.files.length && isLastIndex) {
+      deleteDir()
+      return
+    }
+    for (let index = 0; index < res.files.length; index++) {
+      const item = res.files[index]
+      if (item.type === 'N') {
+        deleteArr.push(`${path}/${item.name}`)
+        if (isLastIndex && index === res.files.length - 1) {
+          // 最后一个文件则开始删除
+          deleteDir()
+        }
+      } else if (item.type === 'F') {
+        // 文件夹则继续递归
+        if (isFirst && index === res.files.length - 1) {
+          // 是否最后一个文件夹
+          isFirst = false
+          isLastIndex = true
+        }
+        await recursiveCheckFile(`${path}/${item.name}`, isLastIndex)
+      }
+    }
+  }
 }
 
-// hmacsha1
-function hmacsha1(secret, value) {
-  return crypto.createHmac('sha1', secret).update(value, 'utf-8').digest().toString('base64');
+const deleteDir = () => {
+  const promises = deleteArr.map((path) => {
+    return client.deleteFile(path);
+  });
+
+  // 同时删除，删除完则进行上传
+  Promise.all(promises).then((posts) => {
+    posts.forEach((item, index) => {
+      if (item) {
+        console.log(`${deleteArr[index]}删除成功！`)
+      } else {
+        console.error(`${deleteArr[index]}删除失败`)
+      }
+    })
+    upload()
+  }).catch((reason) => {
+    console.error('删除失败', reason)
+  });
 }
 
-const bucketname = "111";  // 空间名
-const key = "123"; // 操作员
-const secret = "321"; // 密码
-const upyunUrl = 'http://v0.api.upyun.com/'
-
-let expiration = ((Date.now() / 1000) >>> 0) + 30 * 60;
-let method = "POST";
-
-let policy = base64(
-  JSON.stringify({
-    bucket: bucketname,
-    "save-key": "/{filename}{.suffix}",
-    expiration: expiration
+// 查又拍云文件
+const checkUpyunDir = () => {
+  client.listDir(`/huodong/build/${year}/${month}/${name}`).then((res) => {
+    if (res && res.files) {
+      const hasDir = res.files.findIndex(item => item.name === 'dist') > -1
+      if (hasDir) {
+        // 如果有dist文件夹则需要删除dist文件夹下的文件
+        recursiveCheckFile(`/huodong/build/${year}/${month}/${name}/dist`)
+      } else {
+        upload()
+      }
+    } else {
+      upload()
+    }
   })
-);
+}
 
-let authorization =
-  "UPYUN " +
-  key +
-  ":" +
-  hmacsha1(MD5(secret), method + "&/" + bucketname + "&" + policy);
+fs.readdir('dist', (err, files) => {
+  if (err) {
+    return console.error(err);
+  }
 
-console.log({
-  authorization,
-  policy
-})
-
-
+  // 只上传js、css文件夹下的文件
+  const uploadDir = files.filter(item => uploadDirType.indexOf(item) > -1)
+  uploadDir.forEach((file, index) => {
+    fs.readdir(`dist/${file}`, (_err, _files) => {
+      if (_err) {
+        return console.error(_err);
+      }
+      _files.forEach((_file, _index) => {
+        // 上传文件，key:文件名 value:文件路径
+        uploadObj[_file] = `dist/${file}/${_file}`;
+        if (index === uploadDir.length - 1 && _index === _files.length - 1) {
+          checkUpyunDir()
+        }
+      });
+    });
+  });
+});
