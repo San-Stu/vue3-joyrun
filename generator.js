@@ -38,6 +38,7 @@ module.exports = (api, options, rootOptions) => {
       '@vue/eslint-config-standard': '^5.1.2',
       '@vue/eslint-config-typescript': '^5.0.2',
       'babel-eslint': '^10.1.0',
+      "cross-env": "^7.0.3",
       'eslint': '^6.7.2',
       'eslint-plugin-import': '^2.20.2',
       'eslint-plugin-node': '^11.1.0',
@@ -66,6 +67,13 @@ module.exports = (api, options, rootOptions) => {
     }
   }
   api.extendPackage(package)
+  // 添加build并上传cdn命令
+  api.registerCommand(
+    'build:cdn',
+    {
+      usage: 'cross-env IS_CDN=true vue-cli-service build && node build_cdn.js'
+    }
+  )
   // 复制并用 ejs 渲染 `./template` 内所有的文件
   api.render('./template')
   // 删除文件

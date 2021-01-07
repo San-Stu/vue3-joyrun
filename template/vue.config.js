@@ -3,8 +3,15 @@ const ip = require('ip').address();
 const merge = require('webpack-merge');
 const tsImportPluginFactory = require('ts-import-plugin');
 
+const year = new Date().getFullYear();
+const month = `${new Date().getMonth() + 1}`.padStart(2, 0);
+
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? '/activity/<%= options.name %>/dist/' : '/',
+  publicPath: process.env.NODE_ENV === 'production'
+    ? process.env.IS_CDN
+      ? `https://activity-backoffice-cdn.thejoyrun.com/huodong/build/${year}/${month}/<%= options.name %>/dist/`
+      : '/activity/<%= options.name %>/dist/'
+    : '/',
   indexPath: path.resolve(__dirname, './index.html'),
   productionSourceMap: true,  // 开启生产环境source map
   devServer: {
@@ -26,14 +33,14 @@ module.exports = {
     config.module
       .rule('eslint')
       .use('eslint-loader')
-        .loader('eslint-loader')
-        .tap(options => {
-          return {
-            ...options,
-            emitWarning: true,
-            cache: false
-          }
-        })
+      .loader('eslint-loader')
+      .tap(options => {
+        return {
+          ...options,
+          emitWarning: true,
+          cache: false
+        }
+      })
     config.module
       .rule('ts')
       .use('ts-loader')
