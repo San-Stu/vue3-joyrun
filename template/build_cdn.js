@@ -83,13 +83,14 @@ const deleteDir = () => {
 const checkUpyunDir = () => {
   client.listDir(`/huodong/build/${year}/${month}/${name}`).then((res) => {
     if (res && res.files) {
-      const hasDir = res.files.findIndex(item => item.name === 'dist') > -1
-      if (hasDir) {
-        // 如果有dist文件夹则需要删除dist文件夹下的文件
-        recursiveCheckFile(`/huodong/build/${year}/${month}/${name}/dist`)
-      } else {
-        upload()
-      }
+      // const hasDir = res.files.findIndex(item => item.name === 'dist') > -1
+      // if (hasDir) {
+      //   // 如果有dist文件夹则需要删除dist文件夹下的文件
+      //   recursiveCheckFile(`/huodong/build/${year}/${month}/${name}/dist`)
+      // } else {
+      //   upload()
+      // }
+      upload()
     } else {
       upload()
     }
