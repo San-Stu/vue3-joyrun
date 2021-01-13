@@ -49,3 +49,7 @@ Check the features needed for your project: Choose Vue version, Babel, TS, Route
 
 11.之前会在每个页面注入Mixins来保证刷新后分享配置的正确，但其实只需要在app.vue里注入Mixins就可以了。
 
+
+## 可能遇到的问题
+1.如果你的IDEA装了Vetur，那么你可能会遇到明明有TS的描述文件却还是会有变量标红报"Cannot find name 'xxx'"，别慌，这只是Vetur的报错，而且不影响开发，可以等Vetur修复。如果你一定要解决这个问题的话，可以把你的项目文件夹设置为根目录就好了，参考[这个](https://segmentfault.com/q/1010000022146361)。
+

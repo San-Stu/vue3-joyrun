@@ -11,12 +11,17 @@ export default defineComponent({
 })
 </script>
 <% if (options.cssPerprocessor === 'less') { %>
-<style lang="less">
+<style lang="less" scoped>
 
 </style>
 <% } %>
 <% if (options.cssPerprocessor === 'sass') { %>
-<style lang="sass">
+<style lang="sass" scoped>
+
+</style>
+<% } %>
+<% if (options.cssPerprocessor === 'none') { %>
+<style scoped>
 
 </style>
 <% } %>
