@@ -47,7 +47,7 @@ Check the features needed for your project: Choose Vue version, Babel, TS, Route
 
 10.增加了types文件夹，里面放了一堆TS的描述文件，同学们有新增描述文件需求的话希望统一放到该文件夹下
 
-11.之前会在每个页面注入Mixins来保证刷新后分享配置的正确，但其实只需要在app.vue里注入Mixins就可以了。
+11.增加了hooks文件夹，里面有个常用的startrun hook，各位觉得还有哪些可以抽离成hook的都可以跟我说。
 
 
 ## 可能遇到的问题
