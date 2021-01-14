@@ -5,9 +5,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import shareConfig from '@/common/shareConfig'
 
 export default defineComponent({
-  name: 'index'
+  name: 'index',
+  mixins: [shareConfig]
 })
 </script>
 <% if (options.cssPerprocessor === 'less') { %>

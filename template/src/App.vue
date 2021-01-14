@@ -12,11 +12,9 @@
 
 <script>
 import { defineComponent } from 'vue'
-import shareConfig from '@/common/shareConfig'
 
 export default defineComponent({
-  name: 'app',
-  mixins: [shareConfig]
+  name: 'app'
 })
 </script>
 
