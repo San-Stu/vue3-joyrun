@@ -62,5 +62,23 @@ module.exports = {
         });
         return options
       })
+    if (process.env.IS_CDN) {
+      config.module
+        .rule('images')
+        .use('url-loader')
+        .loader('url-loader')
+        .tap(options => {
+          return {
+            ...options,
+            fallback: {
+              ...options.fallback,
+              options: {
+                name: 'img/[name].[hash:8].[ext]',
+                publicPath: '/activity/<%= options.name %>/dist/'
+              }
+            }
+          }
+        })
+    } 
   }
 }
