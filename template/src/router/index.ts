@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Index from '@/pages/index.vue'
 
 const routes: Array<RouteRecordRaw> = [
@@ -11,7 +11,7 @@ const routes: Array<RouteRecordRaw> = [
 
 const base = process.env.NODE_ENV === 'production' ? '/activity/<%= options.name %>/' : ''
 const router = createRouter({
-  history: createWebHistory(base),
+  history: process.env.NODE_ENV === 'production' ? createWebHistory(base) : createWebHashHistory(base),
   routes,
   scrollBehavior () {
     return { top: 0 }
