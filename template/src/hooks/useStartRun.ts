@@ -1,6 +1,6 @@
 import { Toast } from 'vant'
 
-const useSrartRun = () => {
+const useStartRun = () => {
   const isApp = new nativeService().isJoyRunwebview()
 
   const handleRun = () => {
@@ -18,4 +18,4 @@ const useSrartRun = () => {
   return handleRun
 }
 
-export default useSrartRun
+export default useStartRun
