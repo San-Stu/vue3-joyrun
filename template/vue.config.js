@@ -23,7 +23,7 @@ module.exports = {
     host: ip, // ip打开
     proxy: {
       '/<%= options.name %>': {
-        target: 'http://webevent.cc',
+        target: 'https://webevent-test.thejoyrun.com',
         changeOrigin: true
       }
     },

@@ -17,6 +17,21 @@ axios.interceptors.request.use((config) => {
     forbidClick: true,
     duration: 10000
   })
+  // if (process.env.NODE_ENV === 'development') {
+  //   const uid = 109439996
+  //   /* eslint-disable @typescript-eslint/camelcase */
+  //   if (config.method === 'get') {
+  //     config.params = {
+  //       ...config.params,
+  //       login_uid: uid
+  //     }
+  //   } else if (config.method === 'post') {
+  //     config.data = {
+  //       ...config.data,
+  //       login_uid: uid
+  //     }
+  //   }
+  // }
   return config
 }, (error) => {
   // Do something with request error
