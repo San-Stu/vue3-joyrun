@@ -17,7 +17,8 @@ module.exports = {
     'new-cap': 'off',
     'no-trailing-spaces': 'off',
     'no-multiple-empty-lines': 'off',
-    "@typescript-eslint/no-explicit-any": ["off"]
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/camelcase": ["off"]
   },
   globals: {
     '$': true,
