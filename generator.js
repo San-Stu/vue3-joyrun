@@ -24,7 +24,7 @@ module.exports = (api, options, rootOptions) => {
     'dependencies': {
       'axios': '^0.21.1',
       "vant": "^3.0.2",
-      'vue': '^3.2.0',
+      'vue': '^3.0.0',
       'vue-router': '^4.0.0-0'
     },
     'devDependencies': {
@@ -81,7 +81,6 @@ module.exports = (api, options, rootOptions) => {
     './.eslintrc.js': './template/_eslintrc.js',
     './.eslintignore': './template/_eslintignore',
     './.editorconfig': './template/_editorconfig',
-    './.gitignore': './template/_gitignore',
-    './package-lock.json': './template/package-lock.json'
+    './.gitignore': './template/_gitignore'
   });
 }
