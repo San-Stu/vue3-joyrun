@@ -81,6 +81,7 @@ module.exports = (api, options, rootOptions) => {
     './.eslintrc.js': './template/_eslintrc.js',
     './.eslintignore': './template/_eslintignore',
     './.editorconfig': './template/_editorconfig',
-    './.gitignore': './template/_gitignore'
+    './.gitignore': './template/_gitignore',
+    './package-lock.json': './template/package-lock.json'
   });
 }
