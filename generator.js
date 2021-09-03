@@ -24,20 +24,21 @@ module.exports = (api, options, rootOptions) => {
     'dependencies': {
       'axios': '^0.21.1',
       "vant": "^3.0.2",
-      'vue': '3.0.0',
+      'vue': '^3.0.0',
       'vue-router': '^4.0.0-0'
     },
     'devDependencies': {
       '@types/jquery': '^3.5.5',
-      '@typescript-eslint/eslint-plugin': '^2.33.0',
-      '@typescript-eslint/parser': '^2.33.0',
+      "@typescript-eslint/eslint-plugin": "^4.18.0",
+      "@typescript-eslint/parser": "^4.18.0",
+      "@vue/cli-plugin-babel": "~4.5.0",
       '@vue/cli-plugin-eslint': '~4.5.0',
       '@vue/cli-plugin-router': '~4.5.0',
       '@vue/cli-plugin-typescript': '~4.5.0',
       '@vue/cli-service': '~4.5.0',
       '@vue/compiler-sfc': '^3.0.0',
       '@vue/eslint-config-standard': '^5.1.2',
-      '@vue/eslint-config-typescript': '^5.0.2',
+      "@vue/eslint-config-typescript": "^7.0.0",
       'babel-eslint': '^10.1.0',
       "cross-env": "^7.0.3",
       'eslint': '^6.7.2',
@@ -49,7 +50,7 @@ module.exports = (api, options, rootOptions) => {
       "upyun": "^3.4.4",
       'ip': '^1.1.5',
       "ts-import-plugin": "^1.6.7",
-      'typescript': '~3.9.3'
+      "typescript": "~4.1.5"
     }
   }
   if (options.cssPerprocessor === 'less') {
