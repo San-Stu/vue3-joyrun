@@ -29,6 +29,7 @@ module.exports = {
     },
     clientLogLevel: 'info'
   },
+  parallel: false,
   chainWebpack: config => {
     config.module
       .rule('eslint')
