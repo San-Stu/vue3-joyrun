@@ -18,7 +18,8 @@ module.exports = {
     'no-trailing-spaces': 'off',
     'no-multiple-empty-lines': 'off',
     "@typescript-eslint/no-explicit-any": ["off"],
-    "@typescript-eslint/camelcase": ["off"]
+    "@typescript-eslint/camelcase": ["off"],
+    "@typescript-eslint/explicit-module-boundary-types": ["off"]
   },
   globals: {
     '$': true,
