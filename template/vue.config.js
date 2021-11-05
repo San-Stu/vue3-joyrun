@@ -30,6 +30,7 @@ module.exports = {
     clientLogLevel: 'info'
   },
   parallel: false,
+  transpileDependencies: [/node_modules/],
   chainWebpack: config => {
     config.module
       .rule('eslint')
