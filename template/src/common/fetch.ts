@@ -19,7 +19,6 @@ axios.interceptors.request.use((config) => {
   })
   // if (process.env.NODE_ENV === 'development') {
   //   const uid = 109439996
-  //   /* eslint-disable @typescript-eslint/camelcase */
   //   if (config.method === 'get') {
   //     config.params = {
   //       ...config.params,
@@ -55,6 +54,14 @@ const getIndex: () => Promise<ServerData> = () => {
   return axios.get('/index')
 }
 
+const getActinfo: () => Promise<ServerData> = () => {
+  return axios.get('/actinfo', {
+    baseURL: '/joyrun',
+    params: { activity_id: 0 }
+  })
+}
+
 export {
-  getIndex
+  getIndex,
+  getActinfo
 }

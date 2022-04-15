@@ -25,6 +25,10 @@ module.exports = {
       '/<%= options.name %>': {
         target: 'https://webevent-test.thejoyrun.com',
         changeOrigin: true
+      },
+      '/joyrun': {
+        target: 'https://webevent-test.thejoyrun.com',
+        changeOrigin: true
       }
     },
     clientLogLevel: 'info'
