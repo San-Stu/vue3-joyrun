@@ -1,13 +1,13 @@
 <% if (options.isUseScriptSetup === 'yes') { %>
 import { onMounted, getCurrentInstance } from 'vue'
 
-export default {
+export default function () {
   onMounted(() => {
     const shareData = {
-      title: '',
-      desc: '',
-      link: 'https://' + document.domain + '/activity/<%= options.name %>/',
-      imgUrl: ''
+      title: store.actinfo.share_title,
+      desc: store.actinfo.share_subtitle,
+      link: 'https://' + document.domain + '/activity/middleexamrun/',
+      imgUrl: store.actinfo.share_image
     }
     const instance = getCurrentInstance()
     const proxy = instance.proxy
