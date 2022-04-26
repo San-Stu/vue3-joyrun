@@ -8,7 +8,8 @@ import shareConfig from '@/common/shareConfig'
 
 shareConfig()
 
-<%</script>} else { %>
+</script>
+<% } else { %>
 <script lang="ts">
 import { defineComponent } from 'vue'
 import shareConfig from '@/common/shareConfig'
@@ -17,7 +18,8 @@ export default defineComponent({
   name: 'index',
   mixins: [shareConfig]
 })
-<%</script>} %>
+</script>
+<% } %>
 <% if (options.cssPerprocessor === 'less') { %>
 <style lang="less" scoped>
 
