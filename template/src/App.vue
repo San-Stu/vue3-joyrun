@@ -9,7 +9,6 @@
   <router-view></router-view>
   <% } %>
 </template>
-
 <% if (options.isUseScriptSetup === 'yes') { %>
 <script lang="ts" setup>
 
