@@ -10,6 +10,11 @@
   <% } %>
 </template>
 
+<% if (options.isUseScriptSetup === 'yes') { %>
+<script lang="ts" setup>
+
+</script>
+<% } else { %>
 <script>
 import { defineComponent } from 'vue'
 
@@ -17,7 +22,7 @@ export default defineComponent({
   name: 'app'
 })
 </script>
-
+<% } %>
 <style>
   /* --- reset style --- */
   html, body, div, span, applet, object, iframe,

@@ -67,5 +67,20 @@ module.exports = [
         value: 'none'
       }
     ]
+  },
+  {
+    type: 'list',
+    name: 'isUseScriptSetup',
+    message: 'is use script setup?',
+    choices: [
+      {
+        name: 'no',
+        value: 'no'
+      },
+      {
+        name: 'yes',
+        value: 'yes'
+      }
+    ]
   }
 ]
