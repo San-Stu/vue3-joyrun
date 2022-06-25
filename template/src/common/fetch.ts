@@ -41,7 +41,7 @@ axios.interceptors.request.use((config) => {
 axios.interceptors.response.use((res) => {
   const { data } = res
   Toast.clear()
-  if (data && data.code !== 0) {
+  if (data && data.code !== 0 && data.msg) {
     Toast(data.msg)
   }
   return data
