@@ -24,7 +24,8 @@ module.exports = {
   globals: {
     '$': true,
     'nativeService': true,
-    'jsRunApi': true
+    'jsRunApi': true,
+    'JYMonitor': true
   },
   settings: {
     'import/resolver': {
