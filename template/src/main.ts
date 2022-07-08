@@ -5,14 +5,14 @@ import externalShare from '@/common/share.js'
 
 const app = createApp(App)
 
-app.config.errorHandler = (err, vm, info) => {
-  JYMonitor && JYMonitor.logError({
-    type: 'custom',
-    msg: 'vue error',
-    errorMsg: err,
-    row: info
-  })
-}
+// app.config.errorHandler = (err, vm, info) => {
+//   JYMonitor && JYMonitor.logError({
+//     type: 'custom',
+//     msg: 'vue error',
+//     errorMsg: err,
+//     row: info
+//   })
+// }
 
 const _nativeService = new nativeService()
 
