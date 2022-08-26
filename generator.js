@@ -23,7 +23,7 @@ module.exports = (api, options, rootOptions) => {
     },
     'dependencies': {
       'axios': '^0.21.1',
-      "vant": "^3.0.2",
+      "vant": "3.4.9",
       'vue': '3.2.11',
       'vue-router': '^4.0.0-0'
     },
