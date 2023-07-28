@@ -11,7 +11,36 @@
 </template>
 <% if (options.isUseScriptSetup === 'yes') { %>
 <script lang="ts" setup>
+import { provide, getCurrentInstance } from 'vue'
+import { mutations } from '@/common/store'
+import { getActinfo } from '@/common/fetch'
 
+const instance = getCurrentInstance()
+const {
+  proxy: { nativeService, share }
+} = instance
+
+const fetchGetActinfo = () => {
+  getActinfo().then((res) => {
+    const { code, data } = res
+    if (code === 0) {
+      nativeService.setTitle(data.info.activity_name)
+      const shareData = {
+        title: data.info.share_title,
+        desc: data.info.share_subtitle,
+        link: `https://${document.domain}/activity/<%= options.name %>/`,
+        imgUrl: data.info.share_image
+      }
+      share(shareData)
+      if (nativeService.isJoyRunwebview()) {
+        nativeService.setCloseButtonStatus(true)
+      }
+      mutations.setActinfo(data)
+    }
+  })
+}
+
+fetchGetActinfo()
 </script>
 <% } else { %>
 <script>
