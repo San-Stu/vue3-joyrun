@@ -11,7 +11,7 @@
 </template>
 <% if (options.isUseScriptSetup === 'yes') { %>
 <script lang="ts" setup>
-import { provide, getCurrentInstance } from 'vue'
+import { getCurrentInstance } from 'vue'
 import { mutations } from '@/common/store'
 import { getActinfo } from '@/common/fetch'
 

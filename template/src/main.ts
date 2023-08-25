@@ -25,7 +25,7 @@ const app = createApp(App)
 const _nativeService = new nativeService()
 
 app.config.globalProperties.nativeService = _nativeService
-app.config.globalProperties.isApp = _nativeService.isJoyRunwebview()
+app.config.globalProperties.isApp = process.env.NODE_ENV === 'development' ? true : _nativeService.isJoyRunwebview()
 
 app.use(externalShare)
 app.use(router)
